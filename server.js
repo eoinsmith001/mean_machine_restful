@@ -31,4 +31,5 @@ app.use('/api',apiRouter);
 app.listen(port);
 console.log('running on '+port)
 
+module.exports = app;
 // --------------------------

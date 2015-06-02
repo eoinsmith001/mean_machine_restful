@@ -4,8 +4,8 @@
   "description": "Chapter 9 of Mean Book",
   "main": "server.js",
   "scripts": {
-    "test": "mocha",
-    "start": "node server.js",
+    "test": "mocha -w",
+    "start": "nodemon server.js",
     "db": "mongod --dbpath data"
   },
   "author": "Eoin Smith",

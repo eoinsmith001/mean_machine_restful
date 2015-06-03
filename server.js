@@ -8,7 +8,12 @@ var config = require('./config/config')[env];
 var port = process.env.PORT || config.port || 8080;
 
 var bodyParser = require('body-parser');
+
+// connect to database
 var mongoose = require('mongoose');
+console.log('connection '+config.db);
+mongoose.createConnection(config.db);
+
 var morgan = require('morgan');
 
 app.use(bodyParser.urlencoded({extended:true}));

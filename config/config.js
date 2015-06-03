@@ -10,13 +10,16 @@ module.exports = {
   },
   test: {
     port: 8081,
+    db_uri: 'mongodb://localhost:27017/mean_machine_restful_test',
+    db_options: {
+    }
+  },
+  production: {
+    port: 8082,
     db_uri: 'mongodb://proximus.modulusmongo.net:27017/Towo3wuq',
     db_options: {
       user: 'eoinsmith001@gmail.com',
       pass: 'z8eN#ubyre'
     }
-  },
-  production: {
-    port: 8082
   }
 }

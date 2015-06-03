@@ -11,8 +11,16 @@ var bodyParser = require('body-parser');
 
 // connect to database
 var mongoose = require('mongoose');
-console.log('connection '+config.db);
-mongoose.createConnection(config.db);
+console.log('environment: '+env);
+
+mongoose.createConnection(config.db_uri, config.db_options, function(err) {
+  if (err) {
+    console.log('did not connect to db...');
+    throw err;
+  } else {
+    console.log('db connection ok');
+  }
+});
 
 var morgan = require('morgan');
 

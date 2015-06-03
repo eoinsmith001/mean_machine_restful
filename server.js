@@ -1,9 +1,15 @@
 var express = require('express');
-var app = express();
+var app     = express();
+
+
+// dev test prod
+var env = process.env.NODE_ENV || 'development';
+var config = require('./config/config')[env];
+var port = process.env.PORT || config.port || 8080;
+
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var morgan = require('morgan');
-var port = process.env.PORT || 8080;
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());

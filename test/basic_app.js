@@ -1,5 +1,7 @@
 'use strict';
 
+process.env.NODE_ENV = 'test';
+
 var app     = require('../server');
 var should  = require('should');
 var request = require('supertest');

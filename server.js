@@ -17,8 +17,6 @@ mongoose.createConnection(config.db_uri, config.db_options, function(err) {
   if (err) {
     console.log('did not connect to db...');
     throw err;
-  } else {
-    console.log('db connection ok');
   }
 });
 

@@ -25,3 +25,6 @@ mocha <failing_test> --debug-brk
 // visit url in Chrome and set breakpoints, stepthrough, etc.
 ```
 
+# Notes
+ 
+Here is an interesting presentation on testing [middleware](http://www.slideshare.net/morrissinger/unit-testing-express-middleware)

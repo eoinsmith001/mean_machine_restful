@@ -1,6 +1,6 @@
 var middleware = {
   first: function(req,res,next) {
-    console.log('api request incoming');
+    // console.log('api request incoming');
     next();
   }
 }

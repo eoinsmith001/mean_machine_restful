@@ -8,13 +8,13 @@ var config = require('./config/config')[env];
 var port   = process.env.PORT || config.port || 8080;
 
 var bodyParser = require('body-parser');
-var middleware = require('./middleware/middleware');
+var middleware = require('./app/middleware/middleware');
 
 // connect to database
 var mongoose = require('mongoose');
 console.log('environment: '+env);
 
-mongoose.createConnection(config.db_uri, config.db_options, function(err) {
+mongoose.connect(config.db_uri, config.db_options, function(err) {
   if (err) {
     console.log('did not connect to db...');
     throw err;
@@ -49,6 +49,27 @@ apiRouter.use(function(req,res,next) {
 apiRouter.get('/',function(req,res) {
   res.json({message: 'welcome to the api'});
 });
+
+apiRouter.route('/users')
+  .post(function(req,res) {
+    var user = new User();
+
+    user.name     = req.body.name;
+    user.username = req.body.username;
+    user.password = req.body.password;
+
+    user.save(function(err){
+      if (err) {
+	if (err.code == 11000) {
+	  return res.json({success: false, message: 'User already exists'});
+	} else {
+	  return res.send(err);
+	}
+      }
+      res.json({message: 'User created!'});
+    });
+
+  });
 
 app.use('/api',apiRouter);
 

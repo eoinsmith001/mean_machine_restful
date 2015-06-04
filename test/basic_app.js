@@ -2,9 +2,10 @@
 
 process.env.NODE_ENV = 'test';
 
-var app     = require('../server');
-var should  = require('should');
-var request = require('supertest');
+var app       = require('../server');
+var should    = require('should');
+var request   = require('supertest');
+var httpMocks = require('node-mocks-http');
 
 describe('Application Basics', function() {
   it('should correctly reply to the homepage / path', function() {
@@ -28,4 +29,5 @@ describe('Application Basics', function() {
         res.body.message.should.containEql(expected);
       });
   });
+
 });

@@ -3,9 +3,9 @@
 process.env.NODE_ENV = 'test';
 var env = process.env.NODE_ENV;
 
-var utils    = require('../../utils');
-var should   = require('should');
-var User     = require('../../../app/models/user');
+var utils  = require('../../utils');
+var should = require('should');
+var User   = require('../../../app/models/user');
 
 describe('model User', function() {
 

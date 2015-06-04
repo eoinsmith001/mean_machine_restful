@@ -8,6 +8,7 @@ var config = require('./config/config')[env];
 var port   = process.env.PORT || config.port || 8080;
 
 var bodyParser = require('body-parser');
+var middleware = require('./middleware/middleware');
 
 // connect to database
 var mongoose = require('mongoose');
@@ -41,10 +42,8 @@ app.get('/',function(req,res) {
 
 var apiRouter = express.Router();
 
-// universal middleware for api
 apiRouter.use(function(req,res,next) {
-  console.log('api request incoming');
-  next();
+  middleware.first(req,res,next);
 });
 
 apiRouter.get('/',function(req,res) {

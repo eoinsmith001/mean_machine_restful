@@ -7,13 +7,18 @@ This will commence with a RESTful API:
 - JSON data
 - console logging
 
-
-# Database hosted on modulus
+# Do It
 
 ```
-mongodb://<user>:<pass>@proximus.modulusmongo.net:27017/Towo3wuq
-mongo proximus.modulusmongo.net:27017/Towo3wuq -u <user> -p <pass>
+npm install
+npm run db
+// Then one of:
+npm start
+npm test
 ```
+
+
+
 # Debugging
 
 ```
@@ -28,3 +33,10 @@ mocha <failing_test> --debug-brk
 # Notes
  
 Here is an interesting presentation on testing [middleware](http://www.slideshare.net/morrissinger/unit-testing-express-middleware)
+
+## Database hosted on modulus
+
+```
+mongodb://<user>:<pass>@proximus.modulusmongo.net:27017/Towo3wuq
+mongo proximus.modulusmongo.net:27017/Towo3wuq -u <user> -p <pass>
+```

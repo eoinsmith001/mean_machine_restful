@@ -6,23 +6,27 @@ var env = process.env.NODE_ENV;
 var mongoose = require('mongoose');
 var config   = require('../config/config')[env];
 
+before(function(done) {
+  if (mongoose.connection.db) {
+    return done();
+  }
+  mongoose.connect(config.db_uri, config.db_options, done);
+});
+
 beforeEach(function(done) {
+
   function clearDB() {
     var collections = mongoose.connection.collections;
     for (var i in collections) {
       collections[i].remove();
     }
   }
-  mongoose.connect(config.db_uri, config.db_options, function(err) {
-    if (err) {
-      console.log(err);
-    }
-    clearDB();
-    done();
-    });
+
+  clearDB();
+  done();
 });
 
-afterEach(function(done) {
+after(function(done) {
   mongoose.connection.close(function(err) {
     if (err) {
       console.log(err);

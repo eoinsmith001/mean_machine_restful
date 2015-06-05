@@ -24,6 +24,22 @@ describe('model User', function() {
       });
     });
 
+    it('cannot create duplicate users', function(done) {
+      var user1 = {
+        name: 'user1',
+        username: 'username1',
+        password: 'password1'
+      }
+      User.create(user1,function(err,createdUser) {
+        should.not.exist(err);
+        User.create(user1,function(err, duplicatedUser) {
+          err.code.should.eql(11000);
+          should.not.exist(duplicatedUser);
+          done();
+        });
+      });
+    });
+
     it('should hash the password', function(done) {
       var name = 'test_user';
       var pass = 'password';

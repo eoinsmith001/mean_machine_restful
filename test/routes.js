@@ -32,4 +32,14 @@ describe('API Routes', function() {
 	});
     });
   });
+  describe('get',function() {
+    it('should fetch all users', function(done) {
+      request(app)
+        .get('/api/users')
+        .expect(200)
+        .end(function(err,res) {
+          should.not.exist(err);
+        });
+    });
+  });
 });

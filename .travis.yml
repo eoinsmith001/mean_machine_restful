@@ -3,6 +3,7 @@ serivces:
   - mongodb
 before_script:
   - sleep 30
+  - ps -eaf | grep mongo
   - mongo --eval db
 node_js:
   - "0.12"

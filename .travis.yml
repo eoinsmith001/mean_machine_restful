@@ -1,8 +1,9 @@
 language: node_js
+sudo: required
 serivces: 
   - mongodb
 before_script:
-  - sleep 30
+  - sleep 10
   - ps -eaf | grep mongo
   - mongo --eval db
 node_js:

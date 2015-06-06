@@ -5,6 +5,7 @@ serivces:
 before_script:
   - sleep 10
   - ps -eaf | grep mongo
+  - mongod --version
   - mongo --eval db
 node_js:
   - "0.12"

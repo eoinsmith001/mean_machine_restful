@@ -16,6 +16,7 @@ before(function(done) {
 beforeEach(function(done) {
 
   function clearDB() {
+    console.log('clearing db');
     var collections = mongoose.connection.collections;
     for (var i in collections) {
       collections[i].remove();

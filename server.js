@@ -51,6 +51,15 @@ apiRouter.get('/',function(req,res) {
 });
 
 apiRouter.route('/users')
+  .get(function(req,res) {
+    User.find(function(err,users) {
+      if (err) {
+        res.status(500);
+        res.send(err);
+      }
+      res.json(users);
+    });
+  })
   .post(function(req,res) {
     var user = new User();
 

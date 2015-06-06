@@ -3,6 +3,7 @@ serivces:
   - mongodb
 before_script:
   - sleep 15
+  - echo exit | mongo
 node_js:
   - "0.12"
   - "iojs"

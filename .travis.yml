@@ -2,8 +2,8 @@ language: node_js
 serivces: 
   - mongodb
 before_script:
-  - sleep 15
-  - echo exit | mongo
+  - sleep 30
+  - mongo --eval db
 node_js:
   - "0.12"
   - "iojs"

@@ -3,9 +3,8 @@ sudo: required
 serivces: 
   - mongodb
 before_script:
+  - mongod --dbpath data
   - sleep 10
-  - ps -eaf | grep mongo
-  - mongod --version
   - mongo --eval db
 node_js:
   - "0.12"

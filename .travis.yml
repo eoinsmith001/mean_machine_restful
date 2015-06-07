@@ -6,6 +6,8 @@ before_script:
   - npm run db
   - sleep 10
   - mongo --eval db
+script:
+  - mocha
 after_script:
   - ps -eaf | grep mongod | grep -v grep | awk '{print $2}' | xargs kill
 node_js:

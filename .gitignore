@@ -1,4 +1,5 @@
 node_modules
+db.log
 data/**
 npm-debug.log
 !data/.empty

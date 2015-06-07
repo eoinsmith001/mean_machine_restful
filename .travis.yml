@@ -3,7 +3,7 @@ sudo: required
 serivces: 
   - mongodb
 before_script:
-  - npm rund db
+  - npm run db
   - sleep 10
   - mongo --eval db
 node_js:
